@@ -1,0 +1,94 @@
+@import "../../styles/styles";
+
+.chatBlock {
+  background-color: $primary-color;
+  .title {
+    color: $blue-color;
+    padding: 50px 0 20px 15px;
+    margin: 0;
+  }
+  .listStyle {
+    list-style-type: none;
+    padding-left: 0;
+    li {
+      border-bottom: 1px solid $back-color;
+    }
+    li:last-child {
+      border-bottom: unset;
+    }
+    .conversation {
+      display: grid;
+      grid-template-columns: 40px 1fr max-content;
+      grid-gap: 10px;
+      color: $text-color; // $contrasting-primary-text-color;
+      font-size: 1.3rem;
+      padding: 20px 20px 20px 15px;
+      position: relative;
+      
+      &.activeBlock {
+        background-color: $back-color;
+      }
+
+      &.active,
+      &:hover {
+        background: $back-color;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+      > div {
+       position: relative;
+      }
+     > img {
+        grid-row: span 2;
+        height: 50px;
+        width: 50px;
+        border-radius: 100%;
+      }
+      .colored-circle {
+        position: absolute;
+        left: 49px;
+        bottom: 24px;
+        border-radius: 50%;
+        border: 1px solid green;
+        width: 20px;
+        height: 20px;
+      }
+
+      .checkmark {
+        position: absolute;
+        transform: rotate(45deg) translate(-50%, -50%);
+        left: 30%;
+        top: 45%;
+        height: 12px;
+        width: 5px;
+        border-bottom: 3px solid green;
+        border-right: 3px solid green;
+      }
+
+      .title-text {
+        font-weight: bold;
+        padding-left: 15px;
+        white-space: nowrap;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .created-date {
+        color: $mesage-color;
+        white-space: nowrap;
+        font-size: 1rem;
+      }
+
+      .conversation-message {
+        grid-column: span 2;
+        color: $text-message;
+        padding-left: 15px;
+        white-space: nowrap;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}

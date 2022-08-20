@@ -1,13 +1,647 @@
-body {
+.chatBlock {
+  background-color: white;
+}
+.chatBlock .title {
+  color: rgb(87, 171, 216);
+  padding: 50px 0 20px 15px;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+}
+.chatBlock .listStyle {
+  list-style-type: none;
+  padding-left: 0;
+}
+.chatBlock .listStyle li {
+  border-bottom: 1px solid #e8e4e4;
+}
+.chatBlock .listStyle li:last-child {
+  border-bottom: unset;
+}
+.chatBlock .listStyle .conversation {
+  display: grid;
+  grid-template-columns: 40px 1fr -webkit-max-content;
+  grid-template-columns: 40px 1fr max-content;
+  grid-gap: 10px;
+  color: black;
+  font-size: 1.3rem;
+  padding: 20px 20px 20px 15px;
+  position: relative;
+}
+.chatBlock .listStyle .conversation.activeBlock {
+  background-color: #e8e4e4;
+}
+.chatBlock .listStyle .conversation.active, .chatBlock .listStyle .conversation:hover {
+  background: #e8e4e4;
+}
+.chatBlock .listStyle .conversation:hover {
+  cursor: pointer;
+}
+.chatBlock .listStyle .conversation > div {
+  position: relative;
+}
+.chatBlock .listStyle .conversation > img {
+  grid-row: span 2;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+}
+.chatBlock .listStyle .conversation .colored-circle {
+  position: absolute;
+  left: 49px;
+  bottom: 24px;
+  border-radius: 50%;
+  border: 1px solid green;
+  width: 20px;
+  height: 20px;
+}
+.chatBlock .listStyle .conversation .checkmark {
+  position: absolute;
+  transform: rotate(45deg) translate(-50%, -50%);
+  left: 30%;
+  top: 45%;
+  height: 12px;
+  width: 5px;
+  border-bottom: 3px solid green;
+  border-right: 3px solid green;
+}
+.chatBlock .listStyle .conversation .title-text {
+  font-weight: bold;
+  padding-left: 15px;
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+.chatBlock .listStyle .conversation .created-date {
+  color: rgb(98, 94, 94);
+  white-space: nowrap;
+  font-size: 1rem;
+}
+.chatBlock .listStyle .conversation .conversation-message {
+  grid-column: span 2;
+  color: gray;
+  padding-left: 15px;
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.imageSignIn {
+  position: relative;
 }
+.imageSignIn .userImage {
+  grid-row: span 2;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  margin: 15px 15px 25px;
+}
+.imageSignIn .colored-circle {
+  position: absolute;
+  left: 51px;
+  bottom: 24px;
+  border-radius: 50%;
+  border: 1px solid green;
+  width: 20px;
+  height: 20px;
+}
+.imageSignIn .checkmark {
+  position: absolute;
+  transform: rotate(45deg) translate(-50%, -50%);
+  left: 30%;
+  top: 45%;
+  height: 12px;
+  width: 5px;
+  border-bottom: 3px solid green;
+  border-right: 3px solid green;
+}
+
+.titleMessage {
+  background-color: #e8e4e4;
+  position: relative;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 2rem;
+  padding: 10px 20px;
+  z-index: 1;
+  border-bottom: 1px solid #e8e4e4;
+}
+.titleMessage .arrowBlock {
+  display: flex;
+  align-items: center;
+}
+.titleMessage .arrowBlock > img {
+  grid-row: span 2;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  margin-right: 15px;
+}
+.titleMessage .arrowBlock .arrowRight {
+  display: none;
+  padding: 0 10px 0 10px;
+}
+@media (max-width: 1020px) {
+  .titleMessage .arrowBlock .arrowRight {
+    display: inline;
+    width: 30px;
+    height: 30px;
+    color: black;
+  }
+}
+.titleMessage .colored-circle {
+  position: absolute;
+  left: 54px;
+  bottom: 10px;
+  border-radius: 50%;
+  border: 1px solid green;
+  width: 20px;
+  height: 20px;
+}
+@media (max-width: 1020px) {
+  .titleMessage .colored-circle {
+    left: 106px;
+  }
+}
+.titleMessage .checkmark {
+  position: absolute;
+  transform: rotate(45deg) translate(-50%, -50%);
+  left: 30%;
+  top: 45%;
+  height: 12px;
+  width: 5px;
+  border-bottom: 3px solid green;
+  border-right: 3px solid green;
+}
+.titleMessage .title {
+  font-size: 20px;
+  color: black;
+  font-weight: bold;
+}
+
+.chatWidth {
+  margin: 0 auto;
+  display: flex;
+  border: 1px solid #e8e4e4;
+}
+@media screen and (max-width: 1020px) {
+  .chatWidth {
+    height: 100%;
+  }
+}
+.chatWidth .contactList {
+  border-right: 1px solid rgb(189, 183, 183);
+  background-color: white;
+}
+.chatWidth .titleUser {
+  border-bottom: 1px solid #e8e4e4;
+  background-color: #e8e4e4;
+}
+.chatWidth .chatTitle {
+  width: 100%;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  border-radius: 30px;
+  grid-area: search-container;
+  background: white;
+  padding: 0 10px;
+  margin: 0px 15px 20px 15px;
+  border-radius: 20px;
+  box-shadow: 0 1px 3px -1px rgb(98, 94, 94);
+  z-index: 1;
+}
+.search-container input {
+  flex: 1 0;
+  color: black;
+  outline: none;
+  font-weight: bold;
+  height: 60px;
+  border-radius: 20px;
+  border: 0;
+  padding-left: 20px;
+  font-size: 1.4rem;
+  background-color: white;
+  background-position: 15px center;
+  background-size: 20px 20px;
+}
+.search-container svg {
+  width: 20px;
+  height: 20px;
+}
+.search-container input::-moz-placeholder {
+  color: rgb(98, 94, 94);
+}
+.search-container input:-ms-input-placeholder {
+  color: rgb(98, 94, 94);
+}
+.search-container input::placeholder {
+  color: rgb(98, 94, 94);
+}
+
+.input-block {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: #e8e4e4;
+}
+.input-block .input-container {
+  width: 93%;
+  border-radius: 25px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  cursor: pointer;
+  background-color: white;
+}
+.input-block .input-container:hover {
+  box-shadow: 10px 5px 5px rgb(98, 94, 94);
+}
+.input-block .input-container input {
+  width: 90%;
+  height: 100%;
+  background-color: transparent;
+  color: rgb(98, 94, 94);
+  border: none;
+  padding-left: 1rem;
+  font-size: 1.2rem;
+}
+.input-block .input-container input:focus {
+  outline: none;
+}
+.input-block .input-container div {
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  align-items: center;
+  border: none;
+}
+@media screen and (min-width: 720px) and (max-width: 1080px) {
+  .input-block .input-container div {
+    padding: 0.3rem 1rem;
+  }
+  .input-block .input-container div svg {
+    font-size: 1rem;
+  }
+}
+.input-block .input-container div svg {
+  font-size: 2rem;
+  color: rgb(98, 94, 94);
+}
+
+.chat-messages {
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(249, 246, 246);
+  height: 1202px;
+  gap: 1rem;
+  overflow: auto;
+}
+.chat-messages::-webkit-scrollbar {
+  width: 0.2rem;
+}
+.chat-messages::-webkit-scrollbar-thumb {
+  background-color: rgb(98, 94, 94);
+  width: 0.1rem;
+  border-radius: 1rem;
+}
+.chat-messages .message {
+  display: flex;
+  align-items: center;
+}
+.chat-messages .message.date {
+  color: gray;
+  padding-top: 8px;
+  margin-left: 64px;
+}
+.chat-messages .message .content {
+  overflow-wrap: break-word;
+  padding: 10px;
+  max-width: 70%;
+  font-size: 1.1rem;
+  border-radius: 1rem;
+}
+@media screen and (min-width: 720px) and (max-width: 1080px) {
+  .chat-messages .message .content {
+    max-width: 70%;
+  }
+}
+.chat-messages .message > img {
+  grid-row: span 2;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  margin-right: 10px;
+}
+.chat-messages .sended {
+  justify-content: flex-start;
+}
+.chat-messages .sended .content {
+  background-color: rgb(82, 81, 84);
+  color: white;
+}
+.chat-messages .recieved {
+  justify-content: flex-end;
+}
+.chat-messages .recieved .content {
+  background-color: rgba(203, 203, 204, 0.7294117647);
+  color: rgb(96, 95, 95);
+}
+
+.pageContainer {
+  margin: 1rem;
+}
+@media (min-width: 1024px) {
+  .pageContainer .pageContainer {
+    margin: 3rem;
+  }
+}
+.pageContainer .pageHeader {
+  font-size: 2rem;
+  font-weight: 800;
+  text-align: center;
+}
+@media (min-width: 600px) {
+  .pageContainer .pageHeader {
+    font-size: 20px;
+    text-align: center;
+  }
+}
+.pageContainer .emailInput,
+.pageContainer .passwordInput {
+  box-shadow: rgba(0, 0, 0, 0.11);
+  border: none;
+  background: #ffffff;
+  border-radius: 3rem;
+  height: 3rem;
+  width: 100%;
+  outline: none;
+  font-family: "Montserrat", sans-serif;
+  padding: 0 3rem;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+@media (min-width: 1100px) {
+  .pageContainer .emailInput,
+.pageContainer .passwordInput {
+    padding: 0 5rem;
+  }
+}
+.pageContainer .passwordInputDiv {
+  position: relative;
+}
+.pageContainer .passwordInputDiv .passwordInput {
+  margin-bottom: 2rem;
+  background: url("./assets/svg/lockIcon.svg") #ffffff 2.5% center no-repeat;
+}
+.pageContainer .passwordInputDiv .showPassword {
+  cursor: pointer;
+  position: absolute;
+  top: -4%;
+  right: 1%;
+  padding: 1rem;
+}
+.pageContainer .signInBar {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: inherit;
+}
+@media (min-width: 1024px) {
+  .pageContainer .signInBar {
+    justify-content: start;
+  }
+}
+.pageContainer .signInBar .signInText {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.pageContainer .signInBar .signInButton,
+.pageContainer .signInBar .signInText {
+  cursor: pointer;
+}
+.pageContainer .signInBar .signInButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  background-color: black;
+  border-radius: 50%;
+}
+@media (min-width: 1024px) {
+  .pageContainer .signInBar .signInButton {
+    margin-left: 3rem;
+  }
+}
+.pageContainer .registerLink {
+  margin-top: 4rem;
+  color: black;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.pageContainer .kep-login-facebook.metro {
+  display: flex;
+  margin: 0 auto;
+}
+
+.pageContainer {
+  margin: 1rem;
+}
+@media (min-width: 1024px) {
+  .pageContainer .pageContainer {
+    margin: 3rem;
+  }
+}
+.pageContainer .pageHeader {
+  font-size: 2rem;
+  font-weight: 800;
+  text-align: center;
+}
+@media (min-width: 600px) {
+  .pageContainer .pageHeader {
+    font-size: 20px;
+    text-align: center;
+  }
+}
+.pageContainer .nameInput,
+.pageContainer .passwordInput {
+  box-shadow: rgba(0, 0, 0, 0.11);
+  border: none;
+  background: #ffffff;
+  border-radius: 3rem;
+  height: 3rem;
+  width: 100%;
+  outline: none;
+  font-family: "Montserrat", sans-serif;
+  padding: 0 3rem;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+@media (min-width: 1100px) {
+  .pageContainer .nameInput,
+.pageContainer .passwordInput {
+    padding: 0 5rem;
+  }
+}
+.pageContainer .passwordInputDiv {
+  position: relative;
+}
+.pageContainer .passwordInputDiv .passwordInput {
+  margin-bottom: 2rem;
+  background: url("./assets/svg/lockIcon.svg") #ffffff 2.5% center no-repeat;
+}
+.pageContainer .passwordInputDiv .showPassword {
+  cursor: pointer;
+  position: absolute;
+  top: -4%;
+  right: 1%;
+  padding: 1rem;
+}
+.pageContainer .signUpBar {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: inherit;
+}
+@media (min-width: 1024px) {
+  .pageContainer .signUpBar {
+    justify-content: start;
+  }
+}
+.pageContainer .signUpBar .signUpText {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.pageContainer .signUpBar .signUpButton,
+.pageContainer .signUpBar .signUpText {
+  cursor: pointer;
+}
+.pageContainer .signUpBar .signUpButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  background-color: black;
+  border-radius: 50%;
+}
+@media (min-width: 1024px) {
+  .pageContainer .signUpBar .signUpButton {
+    margin-left: 3rem;
+  }
+}
+.pageContainer .registerLink {
+  margin-top: 4rem;
+  color: black;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: "Dosis", sans-serif;
+  background-color: #f2f4f8;
+  background: url("./assets/jpg/backRound.jpg");
+  margin: 0;
+  box-sizing: border-box;
+  background-size: cover;
+  height: 100%;
+}
+
+html {
+  --scrollbarBG: #cfd8dc;
+  --thumbBG: #4c616b;
+}
+
+body::-webkit-scrollbar {
+  width: 11px;
+}
+
+body {
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
+  border-radius: 6px;
+  border: 3px solid var(--scrollbarBG);
+}
+
+#root > div {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+  display: block;
+  color: #000000;
+}
+
+button {
+  outline: none;
+  border: none;
+}
+
+.loadingSpinnerContainer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 5000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loadingSpinner {
+  width: 64px;
+  height: 64px;
+  border: 8px solid;
+  border-color: #00cc66 transparent #00cc66 transparent;
+  border-radius: 50%;
+  -webkit-animation: spin 1.2s linear infinite;
+          animation: spin 1.2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}/*# sourceMappingURL=index.css.map */

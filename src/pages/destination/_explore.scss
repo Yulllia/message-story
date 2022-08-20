@@ -1,0 +1,24 @@
+@import "../../styles/styles";
+
+.chatWidth {
+  margin: 0 auto;
+  display: flex;
+  border: 1px solid $back-color;
+
+  @media screen and (max-width: 1020px) {
+    height: 100%;
+  }
+
+  .contactList {
+    border-right: 1px solid $right-color;
+    background-color: white;
+  }
+
+  .titleUser {
+    border-bottom: 1px solid $back-color;
+    background-color: $back-color;
+  }
+  .chatTitle {
+    width: 100%;
+  }
+}

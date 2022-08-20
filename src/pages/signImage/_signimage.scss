@@ -1,0 +1,32 @@
+.imageSignIn {
+  position: relative;
+
+  .userImage {
+    grid-row: span 2;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    margin: 15px 15px 25px;
+  }
+
+  .colored-circle {
+    position: absolute;
+    left: 51px;
+    bottom: 24px;
+    border-radius: 50%;
+    border: 1px solid green;
+    width: 20px;
+    height: 20px;
+  }
+
+  .checkmark {
+    position: absolute;
+    transform: rotate(45deg) translate(-50%, -50%);
+    left: 30%;
+    top: 45%;
+    height: 12px;
+    width: 5px;
+    border-bottom: 3px solid green;
+    border-right: 3px solid green;
+  }
+}

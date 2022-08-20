@@ -1,0 +1,71 @@
+@import "../../styles/styles";
+
+.titleMessage {
+  background-color: $back-color;
+  position: relative;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  color: $primary-color;
+  font-weight: bold;
+  font-size: 2rem;
+  padding: 10px 20px;
+  z-index: 1;
+  border-bottom: 1px solid $back-color;
+
+  .arrowBlock {
+    display: flex;
+    align-items: center;
+
+    > img {
+      grid-row: span 2;
+      height: 50px;
+      width: 50px;
+      border-radius: 100%;
+      margin-right: 15px;
+    }
+
+    .arrowRight {
+      display: none;
+      padding: 0 10px 0 10px;
+
+      @media (max-width: 1020px) {
+        display: inline;
+        width: 30px;
+        height: 30px;
+        color: black;
+      }
+    }
+  }
+
+  .colored-circle {
+    position: absolute;
+    left: 54px;
+    bottom: 10px;
+    border-radius: 50%;
+    border: 1px solid green;
+    width: 20px;
+    height: 20px;
+    
+    @media (max-width: 1020px) {
+      left: 106px;
+    }
+  }
+
+  .checkmark {
+    position: absolute;
+    transform: rotate(45deg) translate(-50%, -50%);
+    left: 30%;
+    top: 45%;
+    height: 12px;
+    width: 5px;
+    border-bottom: 3px solid green;
+    border-right: 3px solid green;
+  }
+
+  .title {
+    font-size: 20px;
+    color: $text-color;
+    font-weight: bold;
+  }
+}

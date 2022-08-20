@@ -1,0 +1,52 @@
+@import "../../styles/styles";
+
+.input-block {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: $back-color;
+  .input-container {
+    width: 93%;
+    border-radius: 25px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    cursor: pointer;
+    background-color: $primary-color;
+    &:hover {
+      box-shadow: 10px 5px 5px $mesage-color;
+    }
+
+    input {
+      width: 90%;
+      height: 100%;
+      background-color: transparent;
+      color: $mesage-color;
+      border: none;
+      padding-left: 1rem;
+      font-size: 1.2rem;
+      &:focus {
+        outline: none;
+      }
+    }
+    div {
+      border-radius: 30px;
+      display: flex;
+      justify-content: center;
+      cursor: pointer;
+      align-items: center;
+      border: none;
+      @media screen and (min-width: 720px) and (max-width: 1080px) {
+        padding: 0.3rem 1rem;
+        svg {
+          font-size: 1rem;
+        }
+      }
+      svg {
+        font-size: 2rem;
+        color: $mesage-color;
+      }
+    }
+  }
+}
