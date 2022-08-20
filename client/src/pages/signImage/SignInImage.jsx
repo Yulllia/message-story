@@ -29,7 +29,7 @@ function SignInImage() {
   
   return (
     <div className="imageSignIn">
-      {data?.image.length > 0 ? (
+      {data?.image?.length > 0 ? (
         <>
           <img className={`userImage ${showLogout ? "withLogout" : "noLogout"}`} src={`${data?.image}`} alt="userpicture" onClick={logoutHandler}/>
           <div className="colored-circle" style={{ bottom: showLogout ? "54px" : "24px" }}>
