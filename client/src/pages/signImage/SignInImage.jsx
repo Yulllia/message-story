@@ -38,7 +38,6 @@ function SignInImage() {
       </span>
     );
   }
-  console.log(showLogout);
 
   return (
     <div className="imageSignIn">
