@@ -1,0 +1,5 @@
+{
+    "port" : 3000,
+    "jwtSecret": "kruk art-story",
+    "mongoURL" : "mongodb+srv://YuliaKruk:22Oruled@cluster0.nutnkt6.mongodb.net/?retryWrites=true&w=majority"
+}
