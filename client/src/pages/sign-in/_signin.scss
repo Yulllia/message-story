@@ -1,47 +1,59 @@
+@import "../../styles/styles";
+
 .pageContainer {
-    margin: 1rem;
-  
-    @media (min-width: 1024px) {
-      .pageContainer {
-        margin: 3rem;
-      }
+  margin: 1rem;
+
+  @media (min-width: 1024px) {
+    .pageContainer {
+      margin: 3rem;
     }
-  
-    .pageHeader {
-      font-size: 2rem;
-      font-weight: 800;
+  }
+
+  .pageHeader {
+    font-size: 2rem;
+    font-weight: 800;
+    text-align: center;
+
+    @media (min-width: 600px) {
+      font-size: 20px;
       text-align: center;
-  
-      @media (min-width: 600px) {
-        font-size: 20px;
-        text-align: center;
-      }
     }
+  }
+
+  .passwordInputBlock {
+    margin: 0 10%;
+
     .emailInput,
     .passwordInput {
-      box-shadow: rgba(0, 0, 0, 0.11);
+      box-shadow: $box-shadow;
       border: none;
-      background: #ffffff;
-      border-radius: 3rem;
+      background: $primary-color;
+      border-radius: 25px;
       height: 3rem;
       width: 100%;
       outline: none;
+      border: 1px solid $border-color;
       font-family: "Montserrat", sans-serif;
-      padding: 0 3rem;
+      padding-left: 2rem;
       font-size: 1rem;
       margin-bottom: 2rem;
-  
-      @media (min-width: 1100px) {
-        padding: 0 5rem;
+
+      &:hover,
+      &:focus {
+        box-shadow: 2px 3px 4px $mesage-color;
+        cursor: pointer;
+      }
+      &:active {
+        box-shadow: 2px 3px 4px $mesage-color;
+        cursor: pointer;
       }
     }
-  
+
     .passwordInputDiv {
       position: relative;
 
       .passwordInput {
         margin-bottom: 2rem;
-        background: url("./assets/svg/lockIcon.svg") #ffffff 2.5% center no-repeat;
       }
       .showPassword {
         cursor: pointer;
@@ -51,55 +63,43 @@
         padding: 1rem;
       }
     }
+  }
 
-    .signInBar {
-      margin-top: 3rem;
+  .signInBar {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: inherit;
+
+    .signInText {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    .signInButton,
+    .signInText {
+      cursor: pointer;
+    }
+
+    .signInButton {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-      position: inherit;
-  
-      @media (min-width: 1024px) {
-        justify-content: start;
-      }
-
-      .signInText {
-        font-size: 1.5rem;
-        font-weight: 700;
-      }
-      .signInButton,
-      .signInText {
-        cursor: pointer;
-      }
-
-      .signInButton {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 3rem;
-        height: 3rem;
-        background-color: black;
-        border-radius: 50%;
-    
-        @media (min-width: 1024px) {
-          margin-left: 3rem;
-        }
-      }
+      width: 3rem;
+      height: 3rem;
+      background-color: $text-color;
+      border-radius: 50%;
     }
-    .registerLink {
-      margin-top: 4rem;
-      color: black;
-      font-weight: 600;
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    .kep-login-facebook.metro {
-        display: flex;
-        margin: 0 auto;
-
+  }
+  .registerLink {
+    margin-top: 4rem;
+    color: $text-color;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .kep-login-facebook.metro {
+    display: flex;
+    margin: 25px auto;
   }
 }
-  
-
-
-
