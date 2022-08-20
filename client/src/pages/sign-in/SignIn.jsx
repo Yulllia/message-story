@@ -8,7 +8,6 @@ import { AuthContext } from "../../context/AuthContext";
 import { useHttp } from "../../hooks/UseHttpHook";
 import FacebookLogin from "react-facebook-login";
 
-
 function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
@@ -40,17 +39,21 @@ function SignIn() {
     }
   };
 
-  const responseFacebook = async (response) =>{
+  const responseFacebook = async (response) => {
     const data = await request(
       "/api/auth/login/facebook",
       "POST",
-       JSON.stringify({accessToken:response.accessToken, userId:response.userID, image:response.picture.data.url})
+      JSON.stringify({
+        accessToken: response.accessToken,
+        userId: response.userID,
+        image: response.image ?? response.picture?.data?.url,
+      })
     );
     auth.login(data?.token, data?.name, data?.image);
     if (data?.idFacebook) {
       navigate("/");
     }
-  }
+  };
 
   return (
     <div className="pageContainer">
@@ -58,36 +61,37 @@ function SignIn() {
         <p className="pageHeader">Sign In Page</p>
       </header>
       <form onSubmit={onSubmit}>
-        <input
-          className="emailInput"
-          type="text"
-          placeholder="Name"
-          id="name"
-          value={name}
-          onChange={onChange}
-        />
-        <div className="passwordInputDiv">
+        <div className="passwordInputBlock">
           <input
-            type={showPassword ? "text" : "password"}
-            placeholder="Password"
-            className="passwordInput"
-            id="password"
-            value={password}
+            className="emailInput"
+            type="text"
+            placeholder="Name"
+            id="name"
+            value={name}
             onChange={onChange}
           />
-          <img
-            className="showPassword"
-            src={visibilityIcon}
-            alt="show Password"
-            onClick={() => setShowPassword((prevState) => !prevState)}
-          />
-        </div>
-
-        <div className="signInBar">
-          <p className="signInText">Sign In</p>
-          <button className="signInButton">
-            <ArrowRightIcon fill="#ffffff" width="34px" height="34px" />
-          </button>
+          <div className="passwordInputDiv">
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+              className="passwordInput"
+              id="password"
+              value={password}
+              onChange={onChange}
+            />
+            <img
+              className="showPassword"
+              src={visibilityIcon}
+              alt="show Password"
+              onClick={() => setShowPassword((prevState) => !prevState)}
+            />
+          </div>
+          <div className="signInBar">
+            <p className="signInText">Sign In</p>
+            <button className="signInButton">
+              <ArrowRightIcon fill="#ffffff" width="34px" height="34px" />
+            </button>
+          </div>
         </div>
       </form>
       <FacebookLogin
@@ -105,3 +109,4 @@ function SignIn() {
 }
 
 export default SignIn;
+
