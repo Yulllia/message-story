@@ -1,5 +1,5 @@
 @forward "./../src/pages/chats/chat";
-@forward "./../src/pages/signImage/signimage";
+@import "./../src/pages/signImage/signimage";
 @import "./../src/pages/chat-title/title";
 @import "./../src/pages/destination/explore";
 @import "./../src/pages/search/conversation";
@@ -19,7 +19,6 @@ body {
   margin: 0;
   box-sizing: border-box;
   background-size: cover;
-  height: 100%;
 }
 
 html {
