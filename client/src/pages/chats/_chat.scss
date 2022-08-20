@@ -28,15 +28,14 @@
       &.activeBlock {
         background-color: $back-color;
       }
-
-      &.active,
       &:hover {
-        background: $back-color;
-      }
-
-      &:hover {
+        background: $light-gray;
         cursor: pointer;
-      }
+      } 
+      &:active {
+        background: $back-color;
+        cursor: pointer;
+      } 
       > div {
        position: relative;
       }
