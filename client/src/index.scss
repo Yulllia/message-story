@@ -17,9 +17,9 @@ body {
   background-color: #f2f4f8;
   background: url("./assets/jpg/backRound.jpg");
   margin: 0;
-  height: 100%;
   box-sizing: border-box;
   background-size: cover;
+  overflow: hidden;
 }
 
 html {

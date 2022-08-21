@@ -11,10 +11,12 @@ function SignInImage() {
   const navigate = useNavigate();
   const auth = useContext(AuthContext);
   const logoutRef = useRef(null);
+  const logoutDiv = useRef(null);
+  
 
     useEffect(() => {
       function handleClickOutside(event) {
-        if (logoutRef.current && !logoutRef.current.contains(event.target)) {
+        if (logoutRef.current && !logoutRef.current.contains(event.target) && (logoutDiv.current) &&  !logoutDiv.current.contains(event.target)) {
           setShowLogout(false)
         }
       }
@@ -32,7 +34,7 @@ function SignInImage() {
 
   function logOutField() {
     return (
-      <span className="logoutBlock" onClick={logoutHandler} ref={logoutRef}>
+      <span className="logoutBlock" onClick={logoutHandler} ref={logoutDiv}>
         <p className="logoutTitle">Log out</p>
         <BiLogOut className="logoutImage" />
       </span>
@@ -41,12 +43,13 @@ function SignInImage() {
 
   return (
     <div className="imageSignIn">
-      {data?.image?.lengths > 0 ? (
+      {data?.image ? (
         <>
           <img
             className={`userImage ${showLogout ? "withLogout" : "noLogout"}`}
             onClick={() => setShowLogout(!showLogout)}
             src={`${data?.image}`}
+            ref={logoutRef}
             alt="userpicture"
           />
           <div
@@ -62,6 +65,7 @@ function SignInImage() {
           <img
             className={`userImage ${showLogout ? "withLogout" : "noLogout"}`}
             src={`${noAvatar}`}
+            ref={logoutRef}
             onClick={() => setShowLogout(!showLogout)}
             alt="userpicture"
           />

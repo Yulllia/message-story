@@ -20,7 +20,7 @@ function Chats({setShowMessage}) {
   return (
     <div className="chatBlock">
       <h1 className="title">Chats</h1>
-      <ul className="listStyle">
+      <ul className="listStyle" ref={scrollRef}>
         {lastUserMessages.length ? (
           lastUserMessages.map((item) => {
             const timeElapsed = item.date;
@@ -38,7 +38,6 @@ function Chats({setShowMessage}) {
                     className={`conversation ${
                       messageData.name === item.name && "activeBlock"
                     }`}
-                    ref={scrollRef}
                     onClick={() => getItem(item._id, item.image, item.name)}
                   >
                       <img

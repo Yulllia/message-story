@@ -9,6 +9,15 @@
 .chatBlock .listStyle {
   list-style-type: none;
   padding-left: 0;
+  overflow-y: auto;
+}
+.chatBlock .listStyle::-webkit-scrollbar {
+  width: 0.2rem;
+}
+.chatBlock .listStyle::-webkit-scrollbar-thumb {
+  background-color: rgb(98, 94, 94);
+  width: 0.1rem;
+  border-radius: 1rem;
 }
 .chatBlock .listStyle li {
   border-bottom: 1px solid #e8e4e4;
@@ -217,7 +226,6 @@
 .chatWidth .contactList {
   border-right: 1px solid rgb(189, 183, 183);
   background-color: white;
-  width: 100%;
 }
 .chatWidth .titleUser {
   border-bottom: 1px solid #e8e4e4;
@@ -329,9 +337,9 @@
   display: flex;
   flex-direction: column;
   background-color: rgb(249, 246, 246);
-  min-height: calc(100vh - 197px);
+  overflow-y: auto;
+  height: calc(100vh - 221px);
   gap: 1rem;
-  overflow: auto;
 }
 .chat-messages::-webkit-scrollbar {
   width: 0.2rem;
@@ -582,9 +590,9 @@ body {
   background-color: #f2f4f8;
   background: url("./assets/jpg/backRound.jpg");
   margin: 0;
-  height: 100%;
   box-sizing: border-box;
   background-size: cover;
+  overflow: hidden;
 }
 
 html {

@@ -50,7 +50,7 @@ function SignIn() {
       })
     );
     auth.login(data?.token, data?.name, data?.image);
-    if (data?.idFacebook) {
+    if (data?.token) {
       navigate("/");
     }
   };
@@ -97,9 +97,9 @@ function SignIn() {
       <FacebookLogin
         className="facebookLogin"
         appId="1207028653424445"
-        autoLoad={true}
+        autoLoad={false}
         fields="name,email,picture"
-        callback={responseFacebook}
+        onClick={responseFacebook}
       />
       <Link to="/sign-up" className="registerLink">
         Sign Up

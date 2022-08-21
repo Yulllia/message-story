@@ -10,6 +10,17 @@
   .listStyle {
     list-style-type: none;
     padding-left: 0;
+    overflow-y: auto;
+  
+    &::-webkit-scrollbar {
+      width: 0.2rem;
+      &-thumb {
+        background-color: $mesage-color;
+        width: 0.1rem;
+        border-radius: 1rem;
+      }
+    }
+
     li {
       border-bottom: 1px solid $back-color;
     }
