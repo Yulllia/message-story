@@ -7,9 +7,42 @@ import { AuthContext } from "../../context/AuthContext";
 
 function SignInImage() {
   const data = JSON.parse(localStorage.getItem("userData"));
+  const [showLogout, setShowLogout] = useState(false);
+  const navigate = useNavigate();
+  const auth = useContext(AuthContext);
+  const logoutRef = useRef(null);
+
+    useEffect(() => {
+      function handleClickOutside(event) {
+        if (logoutRef.current && !logoutRef.current.contains(event.target)) {
+          setShowLogout(false)
+        }
+      }
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [logoutRef]);
+
+
+  function logoutHandler() {
+    console.log(1);
+    auth.logout();
+    navigate("/sign-in");
+  }
+
+  function logOutField() {
+    return (
+      <span className="logoutBlock" onClick={logoutHandler} ref={logoutRef}>
+        <p className="logoutTitle">Log out</p>
+        <BiLogOut className="logoutImage" />
+      </span>
+    );
+  }
+
   return (
     <div className="imageSignIn">
-      {data?.image.length > 0 ? (
+      {data?.image?.lengths > 0 ? (
         <>
           <img
             className={`userImage ${showLogout ? "withLogout" : "noLogout"}`}
