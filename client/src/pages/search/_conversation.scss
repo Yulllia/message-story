@@ -11,6 +11,14 @@
   border-radius: 20px;
   box-shadow: 0 1px 3px -1px $mesage-color;
   z-index: 1;
+  cursor: pointer;
+
+  &:hover,
+  &:active,
+  &:focus
+  {
+    box-shadow: 3px 2px 3px $mesage-color;
+  } 
 
   input {
     flex: 1 0;

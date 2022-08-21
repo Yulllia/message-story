@@ -1,3 +1,5 @@
+@import "../../styles/styles";
+
 .imageSignIn {
   position: relative;
 
@@ -6,9 +8,36 @@
     height: 50px;
     width: 50px;
     border-radius: 100%;
-    margin: 15px 15px 25px;
-  }
 
+    &.withLogout {
+      margin: 15px 15px 5px;
+    }
+    &.noLogout {
+      margin: 15px 15px 25px;
+    }
+
+    &:hover {
+      opacity: 0.7;
+      cursor: pointer;
+    }
+  }
+  .logoutBlock {
+    background-color: $light-gray;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 200px;
+    margin: 0px 0px 10px 15px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $right-color;
+    }
+
+    .logoutTitle {
+      color: black;
+    }
+  }
   .colored-circle {
     position: absolute;
     left: 51px;

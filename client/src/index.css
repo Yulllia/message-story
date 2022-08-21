@@ -10,6 +10,10 @@
   list-style-type: none;
   padding-left: 0;
 }
+.chatBlock .listStyle .noContactFound {
+  font-size: 24px;
+  padding-left: 15px;
+}
 .chatBlock .listStyle li {
   border-bottom: 1px solid #e8e4e4;
 }
@@ -29,10 +33,12 @@
 .chatBlock .listStyle .conversation.activeBlock {
   background-color: #e8e4e4;
 }
-.chatBlock .listStyle .conversation.active, .chatBlock .listStyle .conversation:hover {
-  background: #e8e4e4;
-}
 .chatBlock .listStyle .conversation:hover {
+  background: rgb(249, 246, 246);
+  cursor: pointer;
+}
+.chatBlock .listStyle .conversation:active {
+  background: #e8e4e4;
   cursor: pointer;
 }
 .chatBlock .listStyle .conversation > div {
@@ -92,7 +98,31 @@
   height: 50px;
   width: 50px;
   border-radius: 100%;
+}
+.imageSignIn .userImage.withLogout {
+  margin: 15px 15px 5px;
+}
+.imageSignIn .userImage.noLogout {
   margin: 15px 15px 25px;
+}
+.imageSignIn .userImage:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+.imageSignIn .logoutBlock {
+  background-color: rgb(249, 246, 246);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 200px;
+  margin: 0px 0px 10px 15px;
+  cursor: pointer;
+}
+.imageSignIn .logoutBlock:hover {
+  background-color: rgb(189, 183, 183);
+}
+.imageSignIn .logoutBlock .logoutTitle {
+  color: black;
 }
 .imageSignIn .colored-circle {
   position: absolute;
@@ -193,6 +223,7 @@
 .chatWidth .contactList {
   border-right: 1px solid rgb(189, 183, 183);
   background-color: white;
+  width: 100%;
 }
 .chatWidth .titleUser {
   border-bottom: 1px solid #e8e4e4;
@@ -213,6 +244,10 @@
   border-radius: 20px;
   box-shadow: 0 1px 3px -1px rgb(98, 94, 94);
   z-index: 1;
+  cursor: pointer;
+}
+.search-container:hover, .search-container:active, .search-container:focus {
+  box-shadow: 3px 2px 3px rgb(98, 94, 94);
 }
 .search-container input {
   flex: 1 0;
@@ -258,8 +293,9 @@
   cursor: pointer;
   background-color: white;
 }
-.input-block .input-container:hover {
+.input-block .input-container:hover, .input-block .input-container:focus, .input-block .input-container:active {
   box-shadow: 10px 5px 5px rgb(98, 94, 94);
+  border: 1px solid rgb(98, 94, 94);
 }
 .input-block .input-container input {
   width: 90%;
@@ -299,7 +335,7 @@
   display: flex;
   flex-direction: column;
   background-color: rgb(249, 246, 246);
-  height: 1202px;
+  min-height: calc(100vh - 197px);
   gap: 1rem;
   overflow: auto;
 }
@@ -373,34 +409,42 @@
     text-align: center;
   }
 }
-.pageContainer .emailInput,
-.pageContainer .passwordInput {
+.pageContainer .passwordInputBlock {
+  margin: 0 10%;
+}
+.pageContainer .passwordInputBlock .emailInput,
+.pageContainer .passwordInputBlock .passwordInput {
   box-shadow: rgba(0, 0, 0, 0.11);
   border: none;
-  background: #ffffff;
-  border-radius: 3rem;
+  background: white;
+  border-radius: 25px;
   height: 3rem;
   width: 100%;
   outline: none;
+  border: 1px solid rgba(123, 123, 123, 0.5);
   font-family: "Montserrat", sans-serif;
-  padding: 0 3rem;
+  padding-left: 2rem;
   font-size: 1rem;
   margin-bottom: 2rem;
 }
-@media (min-width: 1100px) {
-  .pageContainer .emailInput,
-.pageContainer .passwordInput {
-    padding: 0 5rem;
-  }
+.pageContainer .passwordInputBlock .emailInput:hover, .pageContainer .passwordInputBlock .emailInput:focus,
+.pageContainer .passwordInputBlock .passwordInput:hover,
+.pageContainer .passwordInputBlock .passwordInput:focus {
+  box-shadow: 2px 3px 4px rgb(98, 94, 94);
+  cursor: pointer;
 }
-.pageContainer .passwordInputDiv {
+.pageContainer .passwordInputBlock .emailInput:active,
+.pageContainer .passwordInputBlock .passwordInput:active {
+  box-shadow: 2px 3px 4px rgb(98, 94, 94);
+  cursor: pointer;
+}
+.pageContainer .passwordInputBlock .passwordInputDiv {
   position: relative;
 }
-.pageContainer .passwordInputDiv .passwordInput {
+.pageContainer .passwordInputBlock .passwordInputDiv .passwordInput {
   margin-bottom: 2rem;
-  background: url("./assets/svg/lockIcon.svg") #ffffff 2.5% center no-repeat;
 }
-.pageContainer .passwordInputDiv .showPassword {
+.pageContainer .passwordInputBlock .passwordInputDiv .showPassword {
   cursor: pointer;
   position: absolute;
   top: -4%;
@@ -413,11 +457,6 @@
   justify-content: space-between;
   align-items: center;
   position: inherit;
-}
-@media (min-width: 1024px) {
-  .pageContainer .signInBar {
-    justify-content: start;
-  }
 }
 .pageContainer .signInBar .signInText {
   font-size: 1.5rem;
@@ -436,11 +475,6 @@
   background-color: black;
   border-radius: 50%;
 }
-@media (min-width: 1024px) {
-  .pageContainer .signInBar .signInButton {
-    margin-left: 3rem;
-  }
-}
 .pageContainer .registerLink {
   margin-top: 4rem;
   color: black;
@@ -450,7 +484,7 @@
 }
 .pageContainer .kep-login-facebook.metro {
   display: flex;
-  margin: 0 auto;
+  margin: 25px auto;
 }
 
 .pageContainer {
@@ -472,34 +506,41 @@
     text-align: center;
   }
 }
-.pageContainer .nameInput,
-.pageContainer .passwordInput {
+.pageContainer .passwordInputBlock {
+  margin: 0 10%;
+}
+.pageContainer .passwordInputBlock .nameInput,
+.pageContainer .passwordInputBlock .passwordInputSignUp {
   box-shadow: rgba(0, 0, 0, 0.11);
-  border: none;
-  background: #ffffff;
-  border-radius: 3rem;
+  background: white;
+  border: 1px solid rgba(123, 123, 123, 0.5);
+  border-radius: 25px;
   height: 3rem;
-  width: 100%;
   outline: none;
+  width: 100%;
   font-family: "Montserrat", sans-serif;
-  padding: 0 3rem;
+  padding-left: 2rem;
   font-size: 1rem;
   margin-bottom: 2rem;
 }
-@media (min-width: 1100px) {
-  .pageContainer .nameInput,
-.pageContainer .passwordInput {
-    padding: 0 5rem;
-  }
+.pageContainer .passwordInputBlock .nameInput:hover, .pageContainer .passwordInputBlock .nameInput:focus,
+.pageContainer .passwordInputBlock .passwordInputSignUp:hover,
+.pageContainer .passwordInputBlock .passwordInputSignUp:focus {
+  box-shadow: 2px 3px 4px rgb(98, 94, 94);
+  cursor: pointer;
 }
-.pageContainer .passwordInputDiv {
+.pageContainer .passwordInputBlock .nameInput:active,
+.pageContainer .passwordInputBlock .passwordInputSignUp:active {
+  box-shadow: 2px 3px 4px rgb(98, 94, 94);
+  cursor: pointer;
+}
+.pageContainer .passwordInputBlock .passwordInputDiv {
   position: relative;
 }
-.pageContainer .passwordInputDiv .passwordInput {
+.pageContainer .passwordInputBlock .passwordInputDiv .passwordInputSignUp {
   margin-bottom: 2rem;
-  background: url("./assets/svg/lockIcon.svg") #ffffff 2.5% center no-repeat;
 }
-.pageContainer .passwordInputDiv .showPassword {
+.pageContainer .passwordInputBlock .passwordInputDiv .showPassword {
   cursor: pointer;
   position: absolute;
   top: -4%;
@@ -512,11 +553,6 @@
   justify-content: space-between;
   align-items: center;
   position: inherit;
-}
-@media (min-width: 1024px) {
-  .pageContainer .signUpBar {
-    justify-content: start;
-  }
 }
 .pageContainer .signUpBar .signUpText {
   font-size: 1.5rem;
@@ -535,11 +571,6 @@
   background-color: black;
   border-radius: 50%;
 }
-@media (min-width: 1024px) {
-  .pageContainer .signUpBar .signUpButton {
-    margin-left: 3rem;
-  }
-}
 .pageContainer .registerLink {
   margin-top: 4rem;
   color: black;
@@ -557,9 +588,9 @@ body {
   background-color: #f2f4f8;
   background: url("./assets/jpg/backRound.jpg");
   margin: 0;
+  height: 100%;
   box-sizing: border-box;
   background-size: cover;
-  height: 100%;
 }
 
 html {

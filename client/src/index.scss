@@ -1,5 +1,5 @@
 @forward "./../src/pages/chats/chat";
-@forward "./../src/pages/signImage/signimage";
+@import "./../src/pages/signImage/signimage";
 @import "./../src/pages/chat-title/title";
 @import "./../src/pages/destination/explore";
 @import "./../src/pages/search/conversation";
@@ -17,9 +17,9 @@ body {
   background-color: #f2f4f8;
   background: url("./assets/jpg/backRound.jpg");
   margin: 0;
+  height: 100%;
   box-sizing: border-box;
   background-size: cover;
-  height: 100%;
 }
 
 html {

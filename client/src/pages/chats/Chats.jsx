@@ -1,7 +1,6 @@
 import React from "react";
 import { useContext } from "react";
 import { useEffect, useRef} from "react";
-import Spinner from "../../components/Spinner";
 import { localContext } from "../../context/MessageContext";
 
 function Chats({setShowMessage}) {
@@ -22,7 +21,7 @@ function Chats({setShowMessage}) {
     <div className="chatBlock">
       <h1 className="title">Chats</h1>
       <ul className="listStyle">
-        {lastUserMessages ? (
+        {lastUserMessages.length ? (
           lastUserMessages.map((item) => {
             const timeElapsed = item.date;
             const today = new Date(timeElapsed);
@@ -60,7 +59,7 @@ function Chats({setShowMessage}) {
             );
           })
         ) : (
-          <Spinner />
+          <p className="noContactFound">No Contacts found!</p>
         )}
       </ul>
     </div>
