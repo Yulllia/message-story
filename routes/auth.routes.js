@@ -103,9 +103,9 @@ router.post("/login/facebook", async (req, res) => {
       if (!user) {
         try {
           const user = new User({ name, idFacebook: id });
-          // const token = jwt.sign({ userId: user.id }, config.get("jwtSecret"), {
-          //   expiresIn: "24h",
-          // });
+          const token = jwt.sign({ userId: user.id }, config.get("jwtSecret"), {
+            expiresIn: "24h",
+          });
           await user.save();
           res.json({
             token,
