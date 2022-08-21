@@ -91,7 +91,7 @@ router.post(
 
 router.post("/login/facebook", async (req, res) => {
   const { userId, accessToken, image} = req.body;
-  let urlGraphFacebook = `https://graph.facebook.com/${userId}?access_token=${accessToken}`;
+  let urlGraphFacebook = `https://graph.facebook.com/v2.11/${userId}?fields=id,name&access_token=${accessToken}`;
   fetch(urlGraphFacebook, {
     method: "GET",
   })
@@ -116,19 +116,20 @@ router.post("/login/facebook", async (req, res) => {
         } catch (e) {
           res.status(500).json({ message: "Try again!" });
         }
-      }
-      try {
-        const token = jwt.sign({ userId: user.id }, config.get("jwtSecret"), {
-          expiresIn: "24h",
-        });
-        res.json({
-          token,
-          name: user.name,
-          idFacebook: user.idFacebook,
-          image:image
-        });
-      } catch (e) {
-        res.status(500).json({ message: "Try again!" });
+      } else {
+        try {
+          const token = jwt.sign({ userId: user.id }, config.get("jwtSecret"), {
+            expiresIn: "24h",
+          });
+          res.json({
+            token,
+            name: user.name,
+            idFacebook: user.idFacebook,
+            image:image
+          });
+        } catch (e) {
+          res.status(500).json({ message: "Try again!" });
+        }
       }
     });
 });

@@ -46,7 +46,7 @@ function SignIn() {
       JSON.stringify({
         accessToken: response.accessToken,
         userId: response.userID,
-        image: response.image ?? response.picture?.data?.url,
+        image: response?.image ?? response.picture?.data?.url,
       })
     );
     auth.login(data?.token, data?.name, data?.image);

@@ -26,7 +26,6 @@ function SignInImage() {
 
 
   function logoutHandler() {
-    console.log(1);
     auth.logout();
     navigate("/sign-in");
   }
