@@ -99,7 +99,7 @@ function SignIn() {
         appId="1207028653424445"
         autoLoad={false}
         fields="name,email,picture"
-        onClick={responseFacebook}
+        callback={responseFacebook}
       />
       <Link to="/sign-up" className="registerLink">
         Sign Up
