@@ -10,10 +10,6 @@
   list-style-type: none;
   padding-left: 0;
 }
-.chatBlock .listStyle .noContactFound {
-  font-size: 24px;
-  padding-left: 15px;
-}
 .chatBlock .listStyle li {
   border-bottom: 1px solid #e8e4e4;
 }
@@ -34,11 +30,9 @@
   background-color: #e8e4e4;
 }
 .chatBlock .listStyle .conversation:hover {
-  background: rgb(249, 246, 246);
-  cursor: pointer;
-}
-.chatBlock .listStyle .conversation:active {
   background: #e8e4e4;
+}
+.chatBlock .listStyle .conversation:hover {
   cursor: pointer;
 }
 .chatBlock .listStyle .conversation > div {
