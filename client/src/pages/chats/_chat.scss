@@ -10,12 +10,6 @@
   .listStyle {
     list-style-type: none;
     padding-left: 0;
-
-    .noContactFound {
-      font-size: 24px;
-      padding-left: 15px;
-    }
-
     li {
       border-bottom: 1px solid $back-color;
     }
@@ -30,22 +24,21 @@
       font-size: 1.3rem;
       padding: 20px 20px 20px 15px;
       position: relative;
-
+      
       &.activeBlock {
         background-color: $back-color;
       }
       &:hover {
-        background: $light-gray;
-        cursor: pointer;
-      }
-      &:active {
         background: $back-color;
+      }
+
+      &:hover {
         cursor: pointer;
-      }
+      } 
       > div {
-        position: relative;
+       position: relative;
       }
-      > img {
+     > img {
         grid-row: span 2;
         height: 50px;
         width: 50px;
