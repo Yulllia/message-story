@@ -50,7 +50,7 @@ function SignIn() {
       })
     );
     auth.login(data?.token, data?.name, data?.image);
-    if (data?.token) {
+    if (data?.idFacebook) {
       navigate("/");
     }
   };
